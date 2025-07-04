@@ -1,0 +1,372 @@
+
+/* =================== GLASSMORPHIC SHIMMER =================== */
+
+/* Subtle, professional glassmorphic shimmer */
+.glassmorphic-card::before {
+  content: '';
+  position: absolute;
+  top: -40%;
+  left: -60%;
+  width: 60%;
+  height: 180%;
+  background: linear-gradient(120deg, rgba(255,255,255,0.10) 0%, rgba(255,255,255,0.32) 50%, rgba(255,255,255,0.10) 100%);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 1;
+  border-radius: 2rem;
+  filter: blur(2.5px);
+  animation: shimmer-move 7s cubic-bezier(0.4,0,0.2,1) infinite;
+}
+
+@keyframes shimmer-move {
+  0% { opacity: 0; transform: translateX(-80%) rotate(18deg); }
+  8% { opacity: 0.18; }
+  12% { opacity: 0.32; }
+  16% { opacity: 0.18; }
+  20% { opacity: 0; }
+  100% { opacity: 0; transform: translateX(120%) rotate(18deg); }
+}
+
+/* =================== ICON ANIMATIONS =================== */
+.animate-bounce-slow {
+  animation: bounce-slow 1.8s infinite;
+}
+@keyframes bounce-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+.animate-spin-slow {
+  animation: spin-slow 2.8s linear infinite;
+}
+@keyframes spin-slow {
+  100% { transform: rotate(360deg); }
+}
+
+/* =================== ACCESSIBILITY FOCUS OUTLINE =================== */
+.focus-visible:focus-visible {
+  outline: 4px solid #ff6ec4 !important;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px #ff6ec433;
+}
+/* =================== THEME: LIGHT =================== */
+
+/* Base Styles */
+body:not(.dark) {
+  background: linear-gradient(120deg, #f8f6ff 0%, #f3e9ff 50%, #ffe6f6 100%);
+  color: #232042;
+  font-size: 1.08rem;
+  line-height: 1.7;
+  background-attachment: fixed;
+  background-size: 200% 200%;
+}
+/* Typography */
+.card, .section {
+  background: rgba(255,255,255,0.97);
+  box-shadow: 0 2px 16px 0 rgba(123,47,242,0.07), 0 1.5px 6px 0 rgba(243,87,168,0.05);
+  border-radius: 1rem;
+  border: 1.5px solid #ede7fa;
+  padding: 1.5rem 1.25rem;
+}
+/* Section Headings */
+.section-heading {
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  font-size: 2.2rem;
+  margin-bottom: 0.5em;
+  line-height: 1.15;
+  background: linear-gradient(90deg, #7b2ff2 0%, #f357a8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-emphasis-color: transparent;
+}
+/* Section Subheadings */
+.section-subheading {
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  font-weight: 500;
+  color: #7b2ff2;
+  font-size: 1.15rem;
+  margin-bottom: 1.2em;
+  letter-spacing: 0.01em;
+}
+/* Text Styles */
+p, .prose, .text-base {
+  color: #ffffff;
+  font-size: 1.08rem;
+  line-height: 1.7;
+}
+/* Buttons */
+.btn-accent {
+  background: linear-gradient(90deg, #f357a8 0%, #7b2ff2 100%);
+  color: #fff;
+  font-weight: 800;
+  font-size: 1.08rem;
+  padding: 0.7em 1.6em;
+  border-radius: 0.9rem;
+  box-shadow: 0 2px 12px 0 rgba(123,47,242,0.13);
+  letter-spacing: 0.04em;
+  transition: background 0.2s, box-shadow 0.2s;
+}
+/* Button Hover State */
+.btn-accent:hover {
+  background: linear-gradient(90deg, #7b2ff2 0%, #f357a8 100%);
+  box-shadow: 0 6px 20px 0 rgba(243,87,168,0.18);
+}
+/* Form Elements */
+input, textarea, select {
+  background: #fff;
+  border: 1.5px solid #e0c3fc;
+  border-radius: 0.6rem;
+  color: #232042;
+  padding: 0.6em 1em;
+  font-size: 1rem;
+  transition: border 0.2s, box-shadow 0.2s;
+}
+/* Input Focus State */
+input:focus, textarea:focus, select:focus {
+  border-color: #7b2ff2;
+  box-shadow: 0 0 0 2px #e0c3fc;
+  outline: none;
+}
+/* Tables */
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 100%;
+  background: #ffffff00;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 2px 8px 0 rgba(123,47,242,0.07);
+}
+th {
+  background: #5757576b;
+  color: #7b2ff2;
+  font-weight: 700;
+  padding: 0.75em 1em;
+}
+td {
+  padding: 0.7em 1em;
+  color: #232042;
+}
+tr:nth-child(even) td {
+  background: #f8f6ff;
+}
+/* Table Row Hover State */
+tr:hover td {
+  background: #ede7fa;
+  color: #7b2ff2;
+}
+/* DARK THEME TABLES: Only minimal, targeted improvements */
+.dark th {
+  background: #232042;
+  color: #bdb2ff;
+}
+.dark td {
+  color: #bdb2ff;
+  background: #18102a;
+}
+.dark tr:nth-child(even) td {
+  background: #232042;
+}
+.dark tr:hover td {
+  background: #9e249e;
+  color: #ff6ec4;
+}
+/* Divider */
+.divider {
+  border-bottom: 2px solid #ede7fa;
+  margin: 2.5em 0 1.5em 0;
+}
+
+/* Alerts */
+.alert-info {
+  background: #e0c3fc;
+  color: #232042;
+  border-left: 4px solid #7b2ff2;
+  padding: 1em 1.5em;
+  border-radius: 0.7em;
+  margin-bottom: 1em;
+}
+.alert-success {
+  background: #e6fff6;
+  color: #217a4a;
+  border-left: 4px solid #00b894;
+}
+.alert-warning {
+  background: #fffbe6;
+  color: #a67c00;
+  border-left: 4px solid #ffd600;
+}
+.alert-error {
+  background: #ffe6e6;
+  color: #b20000;
+  border-left: 4px solid #ff357a;
+}
+
+/* Links */
+a {
+  color: #f357a8;
+  text-decoration-thickness: 2px;
+  transition: color 0.2s;
+}
+/* Link Hover State */
+a:hover {
+  color: #ffffff;
+}
+/* Text Colors */
+.text-gray-800, .text-\[\#18102a\] {
+  color: #333333 !important;
+}
+/* Font Weights */
+.font-semibold, .font-bold {
+  color: rgb(255, 255, 255)important;
+}
+/* Privacy Panel Font */
+.privacy-panel-font {
+  font-family: 'Segoe UI', 'Inter', Arial, sans-serif;
+  font-weight: 550;
+  color: #d04df8;
+  letter-spacing: 0.01em;
+}
+
+/* Add to Cart Button */
+.add-to-cart-btn.font-semibold, .add-to-cart-btn.font-bold {
+  color: #ffffff !important;
+}
+/* Nav Links */
+.nav-link.font-semibold, .nav-link.font-bold {
+  color: #232042 !important;
+  &:hover {
+    color: #f357a8 !important;
+  }
+}
+
+/* Section Headings */
+.text-gray-600, .text-gray-700, .text-gray-900 {
+  color: #232042 !important;
+}
+/* Cart Dropdown: Light theme text color fix */
+.cart-dropdown-text {
+  color: #232042 !important;
+}
+/* Section Headings */
+.futuristic-glow {
+  text-shadow: 0 0 8px #ff6ec4, 0 0 2px #7873f5;
+}
+
+
+/* =================== THEME: DARK =================== */
+
+/* Dark Mode Styles */
+.dark .section-heading {
+  background: linear-gradient(90deg, #ffb2f5 0%, #ff6ec4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-emphasis-color: transparent;
+}
+/* Dark Mode Section Subheadings */
+.dark .section-subheading {
+  color: #cfc6ff; 
+}
+/* Dark Mode Text Colors */
+.dark .text-gray-800,
+.dark .text-\[\#18102a\] {
+  color: #ececec !important;
+}
+/* Dark Mode Font Weights */
+.dark .font-semibold, .dark .font-bold {
+  color: #fef3ff !important;
+}
+/* Dark Mode Privacy Panel Font */
+.dark .privacy-panel-font {
+  color: #ff5cf1;
+}
+/* Dark Mode Add to Cart Button */
+.dark .text-gray-600,
+.dark .text-gray-700,
+.dark .text-gray-900 {
+  color: #d1d1d1 !important;
+}
+/* Dark Mode Nav Links */
+.dark .section-heading {
+  background: linear-gradient(90deg, #e0c3fc 0%, #ff6ec4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-emphasis-color: transparent;
+}
+/* Dark Mode Section Headings */
+.dark .section-subheading {
+  color: #fcc3c3;
+}
+
+
+/* =================== UTILITIES & SHARED =================== */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: #f357a8;
+  border-radius: 4px;
+  border: 2px solid #e0c3fc;
+}
+::-webkit-scrollbar-track {
+  background: #f3e9ff;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #7b2ff2;
+}
+::-webkit-scrollbar-track:hover {
+  background: #ffe6f6;
+}
+html {
+  scroll-behavior: smooth;
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes slide-in {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes zoom-in {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@keyframes loading {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+.futuristic-glow { text-shadow: 0 0 8px #ff6ec4, 0 0 2px #7873f5; }
